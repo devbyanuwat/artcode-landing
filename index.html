@@ -722,6 +722,7 @@
     transform: translateY(0);
   }
 
+  /* ── Tablet ── */
   @media (max-width: 1024px) {
     nav { padding: 20px 30px; }
     .hero { padding: 120px 30px 60px; }
@@ -734,6 +735,154 @@
     .stat-item { padding: 30px; }
     footer { flex-direction: column; gap: 24px; text-align: center; }
     .nav-links { display: none; }
+    .cta-section { padding: 100px 30px; }
+    footer { padding: 40px 30px; }
+    .footer-links { gap: 20px; }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    /* Disable custom cursor on touch devices */
+    body { cursor: auto; }
+    .cursor, .cursor-ring { display: none; }
+
+    /* Nav */
+    nav {
+      padding: 16px 20px;
+      background: rgba(5,5,8,0.98);
+    }
+    .logo { font-size: 19px; }
+
+    /* Hamburger / CTA button only */
+    .nav-links { display: none; }
+    .nav-mobile-cta {
+      display: inline-flex;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 8px 16px;
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 2px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 20px 60px;
+      min-height: 100svh;
+      align-items: flex-start;
+    }
+    .hero-content { max-width: 100%; }
+    .hero-badge {
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      padding: 5px 12px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(40px, 11vw, 56px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .hero-desc {
+      font-size: 15px;
+      margin-bottom: 36px;
+      max-width: 100%;
+    }
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+    .btn-primary, .btn-ghost {
+      text-align: center;
+      padding: 15px 24px;
+      font-size: 13px;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 48px;
+    }
+    .stat-item {
+      padding: 24px 20px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-item:nth-child(2n) { border-right: none; }
+    .stat-item:nth-child(3),
+    .stat-item:nth-child(4) { border-bottom: none; }
+    .stat-num { font-size: 36px; }
+    .stat-label { font-size: 12px; }
+
+    /* Sections */
+    section { padding: 64px 20px; }
+    .section-label { font-size: 10px; }
+    h2 { font-size: clamp(28px, 8vw, 40px); }
+
+    /* Services */
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-top: 40px;
+    }
+    .service-card { padding: 36px 24px; }
+    .service-card h3 { font-size: 19px; }
+    .service-card p { font-size: 14px; }
+
+    /* Why */
+    .why-grid { gap: 0; margin-top: 40px; }
+    .why-item { padding: 24px 0; gap: 16px; }
+    .why-item h4 { font-size: 15px; }
+    .why-item p { font-size: 13px; }
+    .why-icon-wrap { width: 38px; height: 38px; font-size: 16px; flex-shrink: 0; }
+
+    /* Process */
+    .process-steps {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .process-steps::before { display: none; }
+    .process-step { padding: 0; }
+    .step-num { width: 52px; height: 52px; font-size: 12px; margin-bottom: 20px; }
+    .process-step h4 { font-size: 16px; }
+    .process-step p { font-size: 14px; }
+
+    /* Tech */
+    .tech-section { padding: 48px 0 64px; }
+    .tech-section .section-label { padding: 0 20px 32px !important; }
+    .tech-marquee-wrap { margin-top: 0; }
+    .tech-pill { padding: 10px 16px; font-size: 11px; }
+
+    /* CTA */
+    .cta-section { padding: 80px 20px; }
+    .cta-section h2 { font-size: clamp(28px, 8vw, 40px); }
+    .cta-sub { font-size: 15px; margin-bottom: 36px; }
+    .cta-actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 20px;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+    .footer-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
+  }
+
+  /* ── Small phones ── */
+  @media (max-width: 380px) {
+    h1 { font-size: 36px; }
+    .hero-badge { font-size: 8px; }
+    .stat-num { font-size: 30px; }
   }
 </style>
 </head>
@@ -756,6 +905,7 @@
     <a href="#contact">Contact</a>
     <a href="#contact" class="nav-cta">เริ่มโปรเจกต์</a>
   </div>
+  <a href="#contact" class="nav-mobile-cta" style="display:none">เริ่มโปรเจกต์</a>
 </nav>
 
 <!-- HERO -->
@@ -1039,7 +1189,7 @@
   <h2 class="reveal">มีโปรเจกต์ในหัว?<br>คุยกันได้เลย</h2>
   <p class="cta-sub reveal">Consult ฟรี ไม่มีข้อผูกมัด — แค่เล่าให้ฟังว่าอยากได้อะไร</p>
   <div class="cta-actions reveal">
-    <a href="mailto:hello@artcode.dev" class="btn-primary">ส่ง Email มาหาเรา →</a>
+    <a href="/cdn-cgi/l/email-protection#a1c9c4cdcdcee1c0d3d5c2cec5c48fc5c4d7" class="btn-primary">ส่ง Email มาหาเรา →</a>
     <a href="https://line.me" class="btn-ghost">LINE OA</a>
   </div>
 </section>
@@ -1056,49 +1206,56 @@
   <div class="footer-copy">© 2025 ArtCode. All rights reserved.</div>
 </footer>
 
-<script>
-  // Custom cursor
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Custom cursor — desktop only
+  const isTouchDevice = () => window.matchMedia('(max-width: 640px)').matches || ('ontouchstart' in window);
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
+
+  // Show mobile CTA on small screens
+  const mobileCta = document.querySelector('.nav-mobile-cta');
+  function checkMobile() {
+    if (window.innerWidth <= 640) {
+      mobileCta.style.display = 'inline-flex';
+    } else {
+      mobileCta.style.display = 'none';
+    }
+  }
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+
   let mx = 0, my = 0, rx = 0, ry = 0;
 
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx - 6 + 'px';
-    cursor.style.top = my - 6 + 'px';
-  });
+  if (!isTouchDevice()) {
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx - 6 + 'px';
+      cursor.style.top = my - 6 + 'px';
+    });
 
-  function animateRing() {
-    rx += (mx - rx - 18) * 0.12;
-    ry += (my - ry - 18) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animateRing);
+    function animateRing() {
+      rx += (mx - rx - 18) * 0.12;
+      ry += (my - ry - 18) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('a, button, .service-card, .why-item').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(2)';
+        ring.style.transform = 'scale(1.5)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'scale(1)';
+        ring.style.transform = 'scale(1)';
+      });
+    });
   }
-  animateRing();
-
-  document.querySelectorAll('a, button, .service-card, .why-item').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'scale(2)';
-      ring.style.transform = 'scale(1.5)';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'scale(1)';
-      ring.style.transform = 'scale(1)';
-    });
-  });
 
   // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
