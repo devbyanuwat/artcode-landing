@@ -722,6 +722,15 @@
     transform: translateY(0);
   }
 
+  /* Mobile: disable reveal animation — show all content immediately */
+  @media (max-width: 1024px) {
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
   /* ── Tablet ── */
   @media (max-width: 1024px) {
     nav { padding: 20px 30px; }
